@@ -1,5 +1,5 @@
 import simplejson as json
-import sys, re
+import sys, re, string
 
 # load the cmu dict
 try:
@@ -83,7 +83,18 @@ def check_string(to_check):
             elif syllable_count > haiku_form[haiku_line]:
                 return False
                
-    
+def find_haiku(to_check):
+    split = to_check.split(' ')
+
+    haiku_list = []
+
+    for i in range(0, len(split) - 2):
+        for j in range(i + 3, len(split) + 1):
+            final = string.join(split[i:j], ' ')
+            if final and check_string(final):
+                haiku_list.append(final)
+
+    return haiku_list
+
 if __name__ == '__main__':
-    print check_string('As the wind does blow Across the trees, I see the Buds blooming in May')
-    print check_string('Itest walk across sand And find myself blistering In the hot, hot heat')
+    print find_haiku('As the wind does blow Across the trees, I see the Buds blooming in May')
