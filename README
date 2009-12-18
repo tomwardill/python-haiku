@@ -1,0 +1,11 @@
+Mostly based on this work:
+http://www.oblomovka.com/code/haiku.php3#download
+But modified for just taking a single line, rather than a file, and with less generator/exception code.
+
+Requires the c06d file from the Carnegie Mellon Pronunciation Dictionary:
+http://www.speech.cs.cmu.edu/cgi-bin/cmudict
+
+Run the conversion script first to build a json based dict
+The python script should then run, and the count_syllables method can be imported for use in other programs.
+
+Enjoy.
