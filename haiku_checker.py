@@ -86,4 +86,4 @@ def check_string(to_check):
     
 if __name__ == '__main__':
     print check_string('As the wind does blow Across the trees, I see the Buds blooming in May')
-    print check_string('I walk across sand And find myself blistering In the hot, hot heat')
+    print check_string('Itest walk across sand And find myself blistering In the hot, hot heat')
