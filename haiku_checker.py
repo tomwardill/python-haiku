@@ -64,20 +64,26 @@ def _count_syllables(word):
         return _guess_sy_count(word)
 
 def check_string(to_check):
+    
+    haiku_form = [5,12,17]
+    
     upper = to_check.upper()
     split = upper.split(' ')
-    syllable_count = 0
-    
-    for word in split:
-        word_count = _count_syllables(word)
-        print word
-        print word_count
-        syllable_count += word_count
-        if syllable_count > 17:
-            return False
-    print syllable_count
     
     
+    for count in haiku_form:
+        syllable_count = 0
+        haiku_line = 0
+        for word in split:
+            syllable_count += _count_syllables(word)
+            if syllable_count == haiku_form[haiku_line]:
+                haiku_line += 1
+                if haiku_line >= len(haiku_form):
+                    return True
+            elif syllable_count > haiku_form[haiku_line]:
+                return False
+               
     
 if __name__ == '__main__':
-    check_string('this is a quackable test')
+    print check_string('As the wind does blow Across the trees, I see the Buds blooming in May')
+    print check_string('I walk across sand And find myself blistering In the hot, hot heat')
