@@ -85,7 +85,12 @@ def check_string(to_check):
                 return False
                
 def find_haiku(to_check):
-    split = to_check.split(' ')
+
+    # remove punctuation
+    exclude = set(string.punctuation)
+    stripped = ''.join(ch for ch in to_check if ch not in exclude)
+    
+    split = stripped.split(' ')
 
     haiku_list = []
 
