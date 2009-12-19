@@ -1,9 +1,10 @@
 import simplejson as json
-import sys, re, string
+import sys, re, string,os
 
 # load the cmu dict
 try:
-    cmu = json.load(open('cmu_dict.json'))
+    path = os.path.join(os.path.dirname(__file__), 'cmu_dict.json')
+    cmu = json.load(open(path))
 except:
     print "Converted CMU dict not found"
     sys.exit(0) 
